@@ -1,23 +1,25 @@
 let input = document.getElementById('input');
 
-function button(obj)
+function button(element)
 {
-    let pushed = obj.innerHTML;
+    let action = element.getAttribute('data-action');
 
-    if (pushed == '=') {
-        input.innerHTML = eval(input.innerHTML);
+    if (action === '=') {
+        input.value = eval(input.value);
         return;
     }
     
-    if (pushed == 'AC') {
-        input.innerHTML = '0';
+    if (action === 'AC') {
+        input.value = '0';
         return;
     }
     
-    if (input.innerHTML == '0') {
-        input.innerHTML = pushed;
+    let numberValue = Number(action);
+    
+    if (input.value === 0) {
+        input.value = numberValue;
         return;
     }
     
-    input.innerHTML += pushed;
+    input.value += numberValue;
 }
