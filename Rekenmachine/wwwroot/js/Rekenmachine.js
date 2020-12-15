@@ -1,21 +1,23 @@
-﻿var input = document.getElementById('input');
+let input = document.getElementById('input');
 
-function button(obj) {
-
-    var pushed = obj.innerHTML;
+function button(obj)
+{
+    let pushed = obj.innerHTML;
 
     if (pushed == '=') {
         input.innerHTML = eval(input.innerHTML);
+        return;
     }
-    else if (pushed == 'AC') {
+    
+    if (pushed == 'AC') {
         input.innerHTML = '0';
+        return;
     }
-    else {
-        if (input.innerHTML == '0') {
-            input.innerHTML = pushed;
-        }
-        else {
-            input.innerHTML += pushed;
-        }
+    
+    if (input.innerHTML == '0') {
+        input.innerHTML = pushed;
+        return;
     }
+    
+    input.innerHTML += pushed;
 }
